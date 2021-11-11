@@ -29,20 +29,22 @@ const ArticleFeed = ({ store }) => {
         <Button>NEWS</Button>
         <Button>HUMANIZING HEALTHCARE</Button>
       </CategoryButton>
-      {store.articles
-        .slice(0, moreArticles ? moreArticles : store.articles.length)
-        .map((article, index) => {
-          const singleArticle = article;
-          const title = singleArticle.fields.title;
-          const category = singleArticle.fields.category;
-          return (
-            <ArticleCard
-              singleArticle={singleArticle}
-              title={title}
-              category={category}
-            />
-          );
-        })}
+      <Divtwo>
+        {store.articles
+          .slice(0, moreArticles ? moreArticles : store.articles.length)
+          .map((article, index) => {
+            const singleArticle = article;
+            const title = singleArticle.fields.title;
+            const category = singleArticle.fields.category;
+            return (
+              <ArticleCard
+                singleArticle={singleArticle}
+                title={title}
+                category={category}
+              />
+            );
+          })}
+      </Divtwo>
       <ButtonDiv>
         <LoadMore onClick={handleLoadMore}>Load More</LoadMore>
       </ButtonDiv>
@@ -141,4 +143,9 @@ const ViewButton = styled.button`
   border-width: 3px;
   font-size: 16px;
   cursor: pointer;
+`;
+
+const Divtwo = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

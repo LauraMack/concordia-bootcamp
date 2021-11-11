@@ -24,7 +24,6 @@ export default ArticleCard;
 const Div = styled.div`
   background-color: white;
   margin: 30px;
-  display: inline-block;
   height: 375px;
   width: 500px;
   &:hover {
