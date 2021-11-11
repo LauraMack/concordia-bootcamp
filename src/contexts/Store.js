@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { post } from "request";
 import { getAllArticles } from "../services/contentful";
 
 export const StoreContext = React.createContext();
@@ -15,7 +16,10 @@ export const StoreProvider = ({ children }) => {
 
   // TODO: Update the method below to return the latest featured article from the list of articles
   const getFeatured = () => {
-    return null;
+    const retrieveFeatured = articles.filter((article) => {
+      return article.fields.featured;
+    });
+    return retrieveFeatured;
   };
 
   return (
